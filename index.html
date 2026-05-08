@@ -112,9 +112,9 @@
         .ovals-img {
             width: 100%;
             display: block;
-            max-height: 260px;
-            object-fit: cover;
-            object-position: center top;
+            max-height: 300px;
+            object-fit: contain;
+            background: #1B2D4A;
         }
 
         /* ===== SCALLOP ===== */
@@ -503,8 +503,8 @@
         }
 
         .sponsor-grid {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 8px;
         }
 
@@ -513,8 +513,6 @@
             border: 1px solid rgba(139,80,0,0.25);
             border-radius: 5px;
             padding: 9px 13px;
-            flex: 1 1 calc(50% - 8px);
-            min-width: 180px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.06);
         }
 
@@ -558,6 +556,46 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 4px;
+        }
+
+        /* ===== VOLUNTEERS ===== */
+        .volunteers-section {
+            margin: 0 22px 22px;
+        }
+
+        .volunteers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .volunteer-card {
+            background: rgba(255,250,228,0.92);
+            border: 1px solid rgba(139,80,0,0.25);
+            border-left: 4px solid #1B2D4A;
+            border-radius: 5px;
+            padding: 9px 13px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+        }
+
+        .volunteer-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .volunteer-role {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #8B5000;
+            margin-bottom: 3px;
+        }
+
+        .volunteer-names {
+            font-family: 'Playfair Display', serif;
+            font-size: 13px;
+            color: #2C1810;
+            line-height: 1.5;
         }
 
         /* ===== FOOTER ===== */
@@ -765,6 +803,64 @@
                     <div class="special-tier-label">Raffle Basket</div>
                     <div class="sponsor-name">Ramya Bala &amp; Nirmala Kanna</div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VOLUNTEERS -->
+    <div class="volunteers-section">
+        <div class="sponsors-heading">
+            <div class="en">Our Volunteers</div>
+            <span class="ta">எங்கள் தன்னார்வலர்கள்</span>
+        </div>
+        <div class="volunteers-grid">
+            <div class="volunteer-card">
+                <div class="volunteer-role">🎤 Master of Ceremonies</div>
+                <div class="volunteer-names">Nirmala Khanna · Lavanya Gunasekhar</div>
+            </div>
+            <div class="volunteer-card">
+                <div class="volunteer-role">🎟️ Registration &amp; Reception</div>
+                <div class="volunteer-names">Varsha Saravanan</div>
+            </div>
+            <div class="volunteer-card">
+                <div class="volunteer-role">🔊 Audio</div>
+                <div class="volunteer-names">Subbu Palamadai · Akshath Aravind · Arvind Padmanabhan</div>
+            </div>
+            <div class="volunteer-card">
+                <div class="volunteer-role">🎚️ Sound System</div>
+                <div class="volunteer-names">Anoop Mathew</div>
+            </div>
+            <div class="volunteer-card">
+                <div class="volunteer-role">💡 Lighting</div>
+                <div class="volunteer-names">Anoop Mathew</div>
+            </div>
+            <div class="volunteer-card">
+                <div class="volunteer-role">📸 Photography &amp; Videography</div>
+                <div class="volunteer-names">Priya Vangeepuram · Padmanabhan</div>
+            </div>
+            <div class="volunteer-card">
+                <div class="volunteer-role">🤝 Participant Coordination</div>
+                <div class="volunteer-names">Sumitha Shankkar · Geetha Senthil · Sabitha Gunabalan</div>
+            </div>
+            <div class="volunteer-card">
+                <div class="volunteer-role">🍱 Food Management</div>
+                <div class="volunteer-names">Mala Srinivasan · Geetha Rajasekar · Muthukumari Velmani</div>
+            </div>
+            <div class="volunteer-card">
+                <div class="volunteer-role">🎁 Raffle</div>
+                <div class="volunteer-names">Ramya Bala</div>
+            </div>
+            <div class="volunteer-card">
+                <div class="volunteer-role">📋 Brochure</div>
+                <div class="volunteer-names">Raj Narayanan · Rohan Narayanan</div>
+            </div>
+            <div class="volunteer-card full-width">
+                <div class="volunteer-role">🌟 Youth Volunteers</div>
+                <div class="volunteer-names">Anirudh Saravanan · Pranav Srinath · Akshath Aravind · Rohit Srinivas</div>
+            </div>
+            <div class="volunteer-card full-width">
+                <div class="volunteer-role">👑 Organizing Team</div>
+                <div class="volunteer-names">Lavanya GunaSekhar · Nisha Palamadai · Shweta Iyer · Sumitha Shankkar · Priya Saravanan · Mala Srinivasan · Nirmala Khanna · Bhavani Aravind</div>
             </div>
         </div>
     </div>
