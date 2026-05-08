@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamil Kondattam 2026 – தமிழ் கொண்டாட்டம்</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: #1B2D4A;
+            font-family: 'Open Sans', sans-serif;
+            color: #3E2723;
+            padding: 20px;
+        }
+
+        .page {
+            max-width: 860px;
+            margin: 0 auto;
+            background: radial-gradient(ellipse at 50% 30%, #FADA5E 0%, #E8A020 45%, #C75B2E 100%);
+            border: 8px solid #1B2D4A;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 10px; left: 10px; right: 10px; bottom: 10px;
+            border: 3px solid rgba(62, 39, 35, 0.35);
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(180deg, #0F1D35 0%, #1B2D4A 100%);
+            padding: 18px 30px 16px;
+            text-align: center;
+            border-bottom: 4px solid #E8A020;
+            position: relative;
+        }
+
+        .icw-logo {
+            display: block;
+            margin: 0 auto 10px;
+            height: 72px;
+            width: auto;
+            /* NO filter — show the logo's natural eagle+peacock colors */
+            background: rgba(255,255,255,0.92);
+            border-radius: 8px;
+            padding: 4px 10px;
+        }
+
+        .event-title-en {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 46px;
+            font-weight: 900;
+            color: #F4C430;
+            text-shadow: 2px 2px 0 #8B5000, 4px 4px 0 rgba(0,0,0,0.4);
+            line-height: 1.1;
+            letter-spacing: 3px;
+        }
+
+        .event-title-ta {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #F4C430;
+            letter-spacing: 3px;
+            margin-top: 6px;
+            text-shadow: 2px 2px 0 #8B5000, 3px 3px 0 rgba(0,0,0,0.35);
+        }
+
+        .event-subtitle {
+            margin-top: 8px;
+        }
+
+        .event-subtitle .en {
+            color: #FFF8DC;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .event-subtitle .ta {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            font-size: 13px;
+            color: #FFD580;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+
+        /* ===== MARIGOLD STRIP ===== */
+        .marigold-strip {
+            background: linear-gradient(90deg, #8B4513, #E87722, #FFA500, #E87722, #8B4513);
+            padding: 6px 0;
+            text-align: center;
+            font-size: 18px;
+            letter-spacing: 4px;
+            line-height: 1;
+        }
+
+        /* ===== OVALS PHOTO STRIP ===== */
+        .photo-strip {
+            background: #1B2D4A;
+            line-height: 0;
+            overflow: hidden;
+        }
+        .ovals-img {
+            width: 100%;
+            display: block;
+            max-height: 260px;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        /* ===== SCALLOP ===== */
+        .scallop {
+            display: flex;
+            background: #1B2D4A;
+            overflow: hidden;
+            height: 28px;
+        }
+        .scallop-inner {
+            width: 100%;
+            background: radial-gradient(ellipse at 50% 30%, #FADA5E 0%, #E8A020 45%, #C75B2E 100%);
+            clip-path: polygon(
+                0% 0%, 3.57% 100%, 7.14% 0%, 10.71% 100%, 14.28% 0%, 17.85% 100%,
+                21.42% 0%, 24.99% 100%, 28.56% 0%, 32.13% 100%, 35.7% 0%, 39.27% 100%,
+                42.84% 0%, 46.41% 100%, 49.98% 0%, 53.55% 100%, 57.12% 0%, 60.69% 100%,
+                64.26% 0%, 67.83% 100%, 71.4% 0%, 74.97% 100%, 78.54% 0%, 82.11% 100%,
+                85.68% 0%, 89.25% 100%, 92.82% 0%, 96.39% 100%, 100% 0%
+            );
+        }
+
+        /* ===== EVENT INFO CARD ===== */
+        .event-info {
+            margin: 20px 22px 12px;
+            background: rgba(255, 248, 220, 0.9);
+            border: 2px solid #8B5000;
+            border-radius: 6px;
+            padding: 16px 20px;
+            text-align: center;
+            box-shadow: inset 0 0 20px rgba(230,160,0,0.15);
+        }
+
+        .event-info-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #8B0000;
+            font-style: italic;
+            margin-bottom: 2px;
+        }
+
+        .event-info-title-ta {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            font-size: 14px;
+            color: #A04020;
+            margin-bottom: 12px;
+        }
+
+        .info-pills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .pill {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #3E2723;
+            background: rgba(248,220,140,0.55);
+            border: 1px solid #C75B2E;
+            border-radius: 20px;
+            padding: 5px 12px;
+        }
+
+        .pill .icon { font-size: 15px; }
+
+        .pill .ta {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            font-size: 11px;
+            color: #8B5000;
+            display: block;
+            line-height: 1;
+        }
+
+        /* ===== PROGRAM SECTION ===== */
+        .program-section {
+            margin: 6px 22px 22px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin: 18px 0 14px;
+        }
+
+        .section-heading .en {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 20px;
+            color: #1B2D4A;
+            text-shadow: 1px 1px 0 rgba(244,196,48,0.5);
+        }
+
+        .section-heading .en::before,
+        .section-heading .en::after {
+            content: ' ✦ ';
+            color: #C75B2E;
+        }
+
+        .section-heading .ta {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            font-size: 16px;
+            color: #5D2E00;
+            margin-top: 2px;
+            display: block;
+        }
+
+        /* ===== LOADING / ERROR ===== */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #3E2723;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+            font-size: 16px;
+        }
+
+        .error-box {
+            background: rgba(255,200,180,0.7);
+            border: 1px solid #8B0000;
+            border-radius: 6px;
+            padding: 14px;
+            color: #8B0000;
+            text-align: center;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        /* ===== SPECIAL ITEMS ===== */
+        .special-item {
+            background: rgba(27, 45, 74, 0.08);
+            border: 1px dashed rgba(27, 45, 74, 0.45);
+            border-radius: 4px;
+            padding: 8px 16px;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .special-item .s-label {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #1B2D4A;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .special-item .s-person {
+            color: #C75B2E;
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        /* ===== PERFORMANCE CARDS ===== */
+        .perf-card {
+            background: rgba(255, 250, 228, 0.92);
+            border: 1px solid rgba(139, 80, 0, 0.3);
+            border-left: 5px solid;
+            border-radius: 5px;
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+        }
+
+        .perf-card.cat-dance   { border-left-color: #C75B2E; }
+        .perf-card.cat-music   { border-left-color: #D4A017; }
+        .perf-card.cat-drama   { border-left-color: #8B0000; }
+        .perf-card.cat-fashion { border-left-color: #7B1FA2; }
+        .perf-card.cat-other   { border-left-color: #1B2D4A; }
+
+        .card-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .item-circle {
+            background: #1B2D4A;
+            color: #F4C430;
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 13px;
+            min-width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .card-content { flex: 1; }
+
+        .badge {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-bottom: 3px;
+        }
+
+        .badge-dance   { background: #FDEBD0; color: #A04020; }
+        .badge-music   { background: #FEF9E7; color: #856000; }
+        .badge-drama   { background: #FADBD8; color: #8B0000; }
+        .badge-fashion { background: #F3E5F5; color: #6A1B9A; }
+        .badge-other   { background: #E8EAF6; color: #283593; }
+
+        .perf-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 15px;
+            color: #2C1810;
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+
+        .perf-group {
+            font-size: 12px;
+            color: #A04020;
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .perf-desc {
+            font-size: 11.5px;
+            color: #5D4037;
+            line-height: 1.5;
+            margin-top: 3px;
+        }
+
+        .perf-participants {
+            font-size: 11px;
+            color: #3E2723;
+            margin-top: 5px;
+            line-height: 1.5;
+            background: rgba(230, 160, 0, 0.12);
+            border-left: 3px solid #E8A020;
+            padding: 4px 8px;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .perf-participants .label {
+            font-weight: 700;
+            color: #8B5000;
+        }
+
+        .perf-footer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 5px;
+        }
+
+        .dur-tag {
+            font-size: 11px;
+            font-weight: 600;
+            color: #1B2D4A;
+        }
+
+        /* ===== PERFORMANCE PHOTOS ===== */
+        .perf-photos {
+            display: flex;
+            gap: 0;
+            overflow: hidden;
+            border-top: 4px solid #E8A020;
+        }
+        .perf-photo {
+            width: 50%;
+            height: 190px;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            filter: sepia(15%) saturate(1.1);
+        }
+
+        /* ===== ORNAMENT ===== */
+        .ornament {
+            text-align: center;
+            color: #8B5000;
+            font-size: 18px;
+            letter-spacing: 8px;
+            margin: 14px 0;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(180deg, #1B2D4A 0%, #0F1D35 100%);
+            border-top: 4px solid #E8A020;
+            padding: 22px 30px;
+            text-align: center;
+        }
+
+        .footer-title .en {
+            font-family: 'Cinzel Decorative', serif;
+            color: #F4C430;
+            font-size: 16px;
+            display: block;
+        }
+
+        .footer-title .ta {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            color: #FFD580;
+            font-size: 13px;
+            display: block;
+            margin-top: 2px;
+            margin-bottom: 8px;
+        }
+
+        .footer-link {
+            display: inline-block;
+            background: #F4C430;
+            color: #1B2D4A;
+            font-weight: 700;
+            font-size: 14px;
+            padding: 8px 22px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin: 6px 0;
+            letter-spacing: 1px;
+        }
+
+        .footer-link:hover { background: #FADA5E; }
+
+        .footer-note {
+            color: rgba(255,255,255,0.55);
+            font-size: 11px;
+            margin-top: 10px;
+        }
+
+        .last-updated {
+            color: rgba(255,255,255,0.35);
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+        /* Print */
+        @media print {
+            body { background: white; padding: 0; }
+            .page { border: none; box-shadow: none; }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .event-title-en { font-size: 30px; }
+            .event-title-ta { font-size: 20px; }
+            body { padding: 8px; }
+            .page { border-width: 5px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- HEADER -->
+    <div class="header">
+        <img src="assets/icw-logo.png" class="icw-logo" alt="India Center of Westchester">
+        <div class="event-title-en">Tamil Kondattam</div>
+        <div class="event-title-ta">தமிழ் கொண்டாட்டம்</div>
+        <div class="event-subtitle">
+            <div class="en">"Delicious Food and Delightful Entertainment!"</div>
+            <div class="ta">"சுவையான உணவும் இனிய நிகழ்ச்சிகளும்!"</div>
+        </div>
+    </div>
+
+    <!-- MARIGOLD STRIP -->
+    <div class="marigold-strip">🌼🌸🌼🌸🌼🌸🌼🌸🌼🌸🌼🌸🌼🌸🌼🌸🌼🌸🌼</div>
+
+    <!-- OVALS PHOTO STRIP from flyer -->
+    <div class="photo-strip">
+        <img src="assets/ovals-strip.jpg" alt="Tamil Kondattam highlights" class="ovals-img">
+    </div>
+
+    <!-- SCALLOP (temple arch) -->
+    <div class="scallop"><div class="scallop-inner"></div></div>
+
+    <!-- EVENT INFO -->
+    <div class="event-info">
+        <div class="event-info-title">✦ 2026 Tamil Day Celebration ✦</div>
+        <div class="event-info-title-ta">✦ 2026 தமிழ் நாள் கொண்டாட்டம் ✦</div>
+        <div class="info-pills">
+            <div class="pill">
+                <span class="icon">📅</span>
+                <span>Saturday, May 9, 2026<span class="ta">சனிக்கிழமை, மே 9</span></span>
+            </div>
+            <div class="pill">
+                <span class="icon">🕧</span>
+                <span>Registration: 12:30 – 1:30 PM<span class="ta">பதிவு நேரம்</span></span>
+            </div>
+            <div class="pill">
+                <span class="icon">🎭</span>
+                <span>Show: 1:30 – 3:30 PM<span class="ta">நிகழ்ச்சி நேரம்</span></span>
+            </div>
+            <div class="pill">
+                <span class="icon">📍</span>
+                <span>Grinton I. Will Library, 1500 Central Park Ave, Yonkers, NY<span class="ta">யோங்கர்ஸ், நியூயார்க்</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROGRAM -->
+    <div class="program-section">
+        <div class="section-heading">
+            <div class="en">Event Program</div>
+            <span class="ta">நிகழ்ச்சி நிரல்</span>
+        </div>
+        <div id="program-container">
+            <div class="loading">⟳ நிகழ்ச்சி நிரல் ஏற்றுகிறது... Loading program...</div>
+        </div>
+        <div class="ornament">✦ &nbsp; ஓம் &nbsp; ✦</div>
+    </div>
+
+    <!-- PERFORMANCE PHOTOS -->
+    <div class="perf-photos">
+        <img src="assets/perf1.jpg" alt="Drama performance" class="perf-photo">
+        <img src="assets/perf2.jpg" alt="Stage performance" class="perf-photo">
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div class="footer-title">
+            <span class="en">🎟️ Register Now</span>
+            <span class="ta">பதிவு செய்யுங்கள்</span>
+        </div>
+        <a class="footer-link" href="https://tinyurl.com/IcTamilKondattam" target="_blank">tinyurl.com/IcTamilKondattam</a>
+        <div class="footer-note">This program updates automatically when the event sheet is edited. · இந்த நிகழ்ச்சி நிரல் தானாகவே புதுப்பிக்கப்படும்.</div>
+        <div class="last-updated" id="last-updated"></div>
+    </div>
+
+</div>
+
+<script>
+    const SHEET_ID = '1cbi4HBrRB_DSPJ0lFC-wWJf54oUSJ3Lhk6jrwptH0LA';
+    const GVZ_URL  = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json`;
+
+    function cell(row, idx) {
+        const c = row.c[idx];
+        if (!c || c.v === null || c.v === undefined) return '';
+        return String(c.v).trim();
+    }
+
+    function catClass(cat) {
+        const c = (cat || '').toLowerCase();
+        if (c.includes('dance'))   return 'dance';
+        if (c.includes('music'))   return 'music';
+        if (c.includes('drama'))   return 'drama';
+        if (c.includes('fashion')) return 'fashion';
+        return 'other';
+    }
+
+    function catIcon(cat) {
+        const c = (cat || '').toLowerCase();
+        if (c.includes('dance'))   return '💃';
+        if (c.includes('music'))   return '🎵';
+        if (c.includes('drama'))   return '🎭';
+        if (c.includes('fashion')) return '👗';
+        return '⭐';
+    }
+
+    function catTamil(cat) {
+        const c = (cat || '').toLowerCase();
+        if (c.includes('dance'))   return 'நடனம்';
+        if (c.includes('music'))   return 'இசை';
+        if (c.includes('drama'))   return 'நாடகம்';
+        if (c.includes('fashion')) return 'ஃபேஷன் ஷோ';
+        return '';
+    }
+
+    function truncate(str, n) {
+        return str.length > n ? str.slice(0, n - 1) + '…' : str;
+    }
+
+    const SPECIALS = ['intro speech', 'president speech', 'vote of thanks', 'transitions', 'total mins'];
+
+    async function loadProgram() {
+        const container = document.getElementById('program-container');
+        try {
+            const bustUrl = GVZ_URL + '&nocache=' + Date.now();
+            const resp = await fetch(bustUrl, { cache: 'no-store' });
+            const text = await resp.text();
+            const json = text.replace(/^[^(]+\(/, '').replace(/\);\s*$/, '');
+            const data = JSON.parse(json);
+            const rows = data.table.rows;
+
+            let html = '';
+
+            for (let i = 1; i < rows.length; i++) {
+                const row = rows[i];
+                if (!row || !row.c) continue;
+
+                const itemNum  = cell(row, 0);   // A: ITEM #
+                const category = cell(row, 1);   // B: CATEGORY
+                const itemName = cell(row, 2);   // C: ITEM NAME
+                const group    = cell(row, 3);   // D: School/Group
+                const teacher  = cell(row, 4);   // E: TEACHER
+                const partici  = cell(row, 5);   // F: PARTICIPANTS
+                const desc     = cell(row, 6);   // G: DESCRIPTION
+                const duration = cell(row, 7);   // H: DURATION
+
+                if (!category && !itemName && !itemNum) continue;
+
+                const allText = (category + ' ' + itemName).toLowerCase();
+                const isSpecial = SPECIALS.some(s => allText.includes(s));
+
+                if (isSpecial) {
+                    const label  = itemName || category;
+                    const person = teacher || partici;
+                    // Skip "Transitions" and "Total Mins" rows entirely
+                    if (allText.includes('transitions') || allText.includes('total mins')) continue;
+                    html += `
+                    <div class="special-item">
+                        <div class="s-label">✦ ${label} ✦</div>
+                        ${person ? `<div class="s-person">${person}</div>` : ''}
+                    </div>`;
+                } else if (itemNum) {
+                    const cc      = catClass(category);
+                    const icon    = catIcon(category);
+                    const taLabel = catTamil(category);
+                    const name    = itemName || category;
+                    const grpLine = [group, teacher].filter(Boolean).join(' · ');
+                    const descTxt = truncate(desc, 220);
+                    const dur     = duration ? `⏱ ${parseFloat(duration)} min` : '';
+
+                    // Format participants as comma-separated list
+                    const participantList = partici
+                        ? partici.split(',').map(p => p.trim()).filter(Boolean)
+                        : [];
+
+                    html += `
+                    <div class="perf-card cat-${cc}">
+                        <div class="card-row">
+                            <div class="item-circle">${itemNum}</div>
+                            <div class="card-content">
+                                ${category ? `<span class="badge badge-${cc}">${icon} ${category}${taLabel ? ' · ' + taLabel : ''}</span>` : ''}
+                                <div class="perf-name">${name}</div>
+                                ${grpLine ? `<div class="perf-group">${grpLine}</div>` : ''}
+                                ${descTxt ? `<div class="perf-desc">${descTxt}</div>` : ''}
+                                ${participantList.length ? `
+                                <div class="perf-participants">
+                                    <span class="label">கலைஞர்கள் / Performers: </span>${participantList.join(' · ')}
+                                </div>` : ''}
+                                ${dur ? `<div class="perf-footer"><span class="dur-tag">${dur}</span></div>` : ''}
+                            </div>
+                        </div>
+                    </div>`;
+                }
+            }
+
+            container.innerHTML = html || '<div class="error-box">No program items found.</div>';
+            document.getElementById('last-updated').textContent =
+                'நேரடி தரவு · Last fetched: ' + new Date().toLocaleString();
+
+        } catch (err) {
+            console.error(err);
+            container.innerHTML = `
+            <div class="error-box">
+                ⚠️ Could not load live data.<br>
+                Make sure the Google Sheet is set to <strong>"Anyone with the link can view"</strong>.<br>
+                <small style="opacity:0.7">${err.message}</small>
+            </div>`;
+        }
+    }
+
+    loadProgram();
+</script>
+</body>
+</html>
