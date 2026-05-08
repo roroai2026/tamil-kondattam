@@ -1032,6 +1032,9 @@
     }
 
     loadProgram();
+
+    // Auto-refresh data every 60 seconds without full page reload
+    setInterval(loadProgram, 60000);
 </script>
 </body>
 </html>
