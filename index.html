@@ -1015,7 +1015,7 @@
             for (const row of rows) {
                 if (!row || !row.c) continue;
                 const role  = row.c[0] && row.c[0].v ? String(row.c[0].v).trim() : '';
-                const names = row.c[2] && row.c[2].v ? String(row.c[2].v).trim() : '';
+                const names = row.c[1] && row.c[1].v ? String(row.c[1].v).trim() : '';
                 if (!role || !names) continue;
 
                 const isWide = FULL_WIDTH_ROLES.some(k => role.toLowerCase().includes(k));
