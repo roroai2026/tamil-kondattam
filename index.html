@@ -808,55 +808,8 @@
             <div class="en">Our Volunteers</div>
             <span class="ta">எங்கள் தன்னார்வலர்கள்</span>
         </div>
-        <div class="volunteers-grid">
-            <div class="volunteer-card">
-                <div class="volunteer-role">🎤 Master of Ceremonies</div>
-                <div class="volunteer-names">Nirmala Khanna · Lavanya Gunasekhar</div>
-            </div>
-            <div class="volunteer-card">
-                <div class="volunteer-role">🎟️ Registration &amp; Reception</div>
-                <div class="volunteer-names">Varsha Saravanan</div>
-            </div>
-            <div class="volunteer-card">
-                <div class="volunteer-role">🔊 Audio</div>
-                <div class="volunteer-names">Subbu Palamadai · Akshath Aravind · Arvind Padmanabhan</div>
-            </div>
-            <div class="volunteer-card">
-                <div class="volunteer-role">🎚️ Sound System</div>
-                <div class="volunteer-names">Anoop Mathew</div>
-            </div>
-            <div class="volunteer-card">
-                <div class="volunteer-role">💡 Lighting</div>
-                <div class="volunteer-names">Anoop Mathew</div>
-            </div>
-            <div class="volunteer-card">
-                <div class="volunteer-role">📸 Photography &amp; Videography</div>
-                <div class="volunteer-names">Priya Vangeepuram · Padmanabhan</div>
-            </div>
-            <div class="volunteer-card">
-                <div class="volunteer-role">🤝 Participant Coordination</div>
-                <div class="volunteer-names">Sumitha Shankkar · Geetha Senthil · Sabitha Gunabalan</div>
-            </div>
-            <div class="volunteer-card">
-                <div class="volunteer-role">🍱 Food Management</div>
-                <div class="volunteer-names">Mala Srinivasan · Geetha Rajasekar · Muthukumari Velmani</div>
-            </div>
-            <div class="volunteer-card">
-                <div class="volunteer-role">🎁 Raffle</div>
-                <div class="volunteer-names">Ramya Bala</div>
-            </div>
-            <div class="volunteer-card">
-                <div class="volunteer-role">📋 Brochure</div>
-                <div class="volunteer-names">Raj Narayanan · Rohan Narayanan</div>
-            </div>
-            <div class="volunteer-card full-width">
-                <div class="volunteer-role">🌟 Youth Volunteers</div>
-                <div class="volunteer-names">Anirudh Saravanan · Pranav Srinath · Akshath Aravind · Rohit Srinivas</div>
-            </div>
-            <div class="volunteer-card full-width">
-                <div class="volunteer-role">👑 Organizing Team</div>
-                <div class="volunteer-names">Lavanya GunaSekhar · Nisha Palamadai · Shweta Iyer · Sumitha Shankkar · Priya Saravanan · Mala Srinivasan · Nirmala Khanna · Bhavani Aravind</div>
-            </div>
+        <div class="volunteers-grid" id="volunteers-container">
+            <div class="loading" style="grid-column:1/-1">⟳ Loading volunteers...</div>
         </div>
     </div>
 
@@ -1031,10 +984,62 @@
         });
     }
 
-    loadProgram();
+    const ICONS = {
+        'registration': '🎟️', 'stage decoration': '🎨', 'stage management': '🎪',
+        'audio': '🔊', 'sound': '🎚️', 'photography': '📸', 'ceremonies': '🎤',
+        'brochure': '📋', 'coordination': '🤝', 'raffle': '🎁',
+        'food': '🍱', 'youth': '⭐', 'lighting': '💡', 'organizing': '👑'
+    };
 
-    // Auto-refresh data every 60 seconds without full page reload
-    setInterval(loadProgram, 60000);
+    function roleIcon(role) {
+        const r = role.toLowerCase();
+        for (const [key, icon] of Object.entries(ICONS)) {
+            if (r.includes(key)) return icon;
+        }
+        return '🙌';
+    }
+
+    const FULL_WIDTH_ROLES = ['youth', 'organizing'];
+
+    async function loadVolunteers() {
+        const container = document.getElementById('volunteers-container');
+        try {
+            const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=Volunteers&nocache=${Date.now()}`;
+            const resp = await fetch(url, { cache: 'no-store' });
+            const text = await resp.text();
+            const json = text.replace(/^[^(]+\(/, '').replace(/\);\s*$/, '');
+            const data = JSON.parse(json);
+            const rows = data.table.rows;
+
+            let html = '';
+            for (const row of rows) {
+                if (!row || !row.c) continue;
+                const role  = row.c[0] && row.c[0].v ? String(row.c[0].v).trim() : '';
+                const names = row.c[1] && row.c[1].v ? String(row.c[1].v).trim() : '';
+                if (!role || !names) continue;
+
+                const isWide = FULL_WIDTH_ROLES.some(k => role.toLowerCase().includes(k));
+                const icon   = roleIcon(role);
+                const namesFmt = names.split(',').map(n => n.trim()).join(' · ');
+
+                html += `
+                <div class="volunteer-card${isWide ? ' full-width' : ''}">
+                    <div class="volunteer-role">${icon} ${role}</div>
+                    <div class="volunteer-names">${namesFmt}</div>
+                </div>`;
+            }
+
+            container.innerHTML = html || '<div class="error-box">No volunteer data found.</div>';
+        } catch (err) {
+            console.error('Volunteers load error:', err);
+        }
+    }
+
+    loadProgram();
+    loadVolunteers();
+
+    // Auto-refresh everything from Google Sheets every 60 seconds
+    setInterval(() => { loadProgram(); loadVolunteers(); }, 60000);
 </script>
 </body>
 </html>
