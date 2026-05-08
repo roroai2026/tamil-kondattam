@@ -440,6 +440,126 @@
             margin: 14px 0;
         }
 
+        /* ===== SPONSORS ===== */
+        .sponsors-section {
+            margin: 0 22px 22px;
+        }
+
+        .sponsors-heading {
+            text-align: center;
+            margin: 18px 0 14px;
+        }
+
+        .sponsors-heading .en {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 20px;
+            color: #1B2D4A;
+            text-shadow: 1px 1px 0 rgba(244,196,48,0.5);
+        }
+
+        .sponsors-heading .en::before,
+        .sponsors-heading .en::after { content: ' ✦ '; color: #C75B2E; }
+
+        .sponsors-heading .ta {
+            font-family: 'Noto Sans Tamil', sans-serif;
+            font-size: 14px;
+            color: #5D2E00;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .sponsor-tier {
+            margin-bottom: 16px;
+        }
+
+        .tier-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+
+        .tier-label.diamond {
+            background: linear-gradient(90deg, #1B2D4A, #2E4A7A);
+            color: #B9F2FF;
+            border-left: 4px solid #00CFFF;
+        }
+
+        .tier-label.gold {
+            background: linear-gradient(90deg, #7B5800, #B8860B);
+            color: #FFF5CC;
+            border-left: 4px solid #F4C430;
+        }
+
+        .tier-label.special {
+            background: linear-gradient(90deg, #3E2723, #6D4C41);
+            color: #FFE0B2;
+            border-left: 4px solid #C75B2E;
+        }
+
+        .sponsor-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .sponsor-card {
+            background: rgba(255,250,228,0.92);
+            border: 1px solid rgba(139,80,0,0.25);
+            border-radius: 5px;
+            padding: 9px 13px;
+            flex: 1 1 calc(50% - 8px);
+            min-width: 180px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+        }
+
+        .sponsor-card.diamond {
+            border-left: 4px solid #00CFFF;
+            background: rgba(220,245,255,0.6);
+        }
+
+        .sponsor-card.gold {
+            border-left: 4px solid #F4C430;
+        }
+
+        .sponsor-card.special {
+            border-left: 4px solid #C75B2E;
+        }
+
+        .sponsor-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: #2C1810;
+        }
+
+        .sponsor-detail {
+            font-size: 11px;
+            color: #6D4C41;
+            margin-top: 3px;
+            line-height: 1.4;
+        }
+
+        .sponsor-detail a {
+            color: #1B2D4A;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .special-tier-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #8B5000;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
         /* ===== FOOTER ===== */
         .footer {
             background: linear-gradient(180deg, #1B2D4A 0%, #0F1D35 100%);
@@ -574,6 +694,79 @@
             <div class="loading">⟳ நிகழ்ச்சி நிரல் ஏற்றுகிறது... Loading program...</div>
         </div>
         <div class="ornament">✦ &nbsp; ஓம் &nbsp; ✦</div>
+    </div>
+
+    <!-- SPONSORS -->
+    <div class="sponsors-section">
+        <div class="sponsors-heading">
+            <div class="en">Our Generous Sponsors</div>
+            <span class="ta">எங்கள் அன்பான நன்கொடையாளர்கள்</span>
+        </div>
+
+        <!-- DIAMOND -->
+        <div class="sponsor-tier">
+            <div class="tier-label diamond">💎 Diamond Sponsors</div>
+            <div class="sponsor-grid">
+                <div class="sponsor-card diamond">
+                    <div class="sponsor-name">C2 Education</div>
+                </div>
+                <div class="sponsor-card diamond">
+                    <div class="sponsor-name">The Muger Family</div>
+                    <div class="sponsor-detail">Suchitra &amp; Vinod</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GOLD -->
+        <div class="sponsor-tier">
+            <div class="tier-label gold">🥇 Gold Sponsors</div>
+            <div class="sponsor-grid">
+                <div class="sponsor-card gold">
+                    <div class="sponsor-name">Aravind Natarajan</div>
+                </div>
+                <div class="sponsor-card gold">
+                    <div class="sponsor-name">Bharathi Rao</div>
+                    <div class="sponsor-detail">Real Estate Salesperson, Houlihan Lawrence<br><a href="tel:9144395721">914-439-5721</a> · <a href="mailto:brao@houlihanlawrence.com">brao@houlihanlawrence.com</a></div>
+                </div>
+                <div class="sponsor-card gold">
+                    <div class="sponsor-name">Chaitra Sree &amp; Mudhakar Srivatsa</div>
+                </div>
+                <div class="sponsor-card gold">
+                    <div class="sponsor-name">Geetha &amp; Senthil Nathan</div>
+                </div>
+                <div class="sponsor-card gold">
+                    <div class="sponsor-name">Kamala Vittal</div>
+                    <div class="sponsor-detail">Real Estate Salesperson, Julia B. Fee Sotheby's International Realty<br><a href="tel:9143188134">914-318-8134</a> · <a href="mailto:kamala.vittal@juliabfee.com">kamala.vittal@juliabfee.com</a></div>
+                </div>
+                <div class="sponsor-card gold">
+                    <div class="sponsor-name">Kumara Sidhartha</div>
+                    <div class="sponsor-detail">Author of "All My Secrets" · <a href="https://instagram.com/dr.sid.freshandwholesome" target="_blank">@dr.sid.freshandwholesome</a></div>
+                </div>
+                <div class="sponsor-card gold">
+                    <div class="sponsor-name">Nirmala &amp; Bala Kanna</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SPECIAL SPONSORS -->
+        <div class="sponsor-tier">
+            <div class="tier-label special">☕ Special Sponsors</div>
+            <div class="sponsor-grid">
+                <div class="sponsor-card special">
+                    <div class="special-tier-label">After Program Chai</div>
+                    <div class="sponsor-name">Hiral Trivedi</div>
+                    <div class="sponsor-detail">Real Estate Salesperson, Compass<br><a href="tel:6464021207">646-402-1207</a> · <a href="mailto:hiral.trivedi@compass.com">hiral.trivedi@compass.com</a></div>
+                </div>
+                <div class="sponsor-card special">
+                    <div class="special-tier-label">Lunch Dessert</div>
+                    <div class="sponsor-name">Deepa Rajashekar</div>
+                </div>
+                <div class="sponsor-card special">
+                    <div class="special-tier-label">Raffle Basket</div>
+                    <div class="sponsor-name">Ramya Bala &amp; Nirmala Kanna</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- PERFORMANCE PHOTOS -->
