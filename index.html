@@ -80,18 +80,16 @@
         }
 
         .event-subtitle .en {
-            color: #FFF8DC;
+            color: #5CDB5C;
             font-family: 'Playfair Display', serif;
             font-style: italic;
             font-size: 14px;
-            opacity: 0.9;
         }
 
         .event-subtitle .ta {
             font-family: 'Noto Sans Tamil', sans-serif;
             font-size: 13px;
-            color: #FFD580;
-            opacity: 0.85;
+            color: #7FE87F;
             margin-top: 2px;
         }
 
@@ -193,6 +191,43 @@
             display: block;
             line-height: 1;
         }
+
+        /* ===== CATEGORY FILTERS ===== */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .filter-btn {
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 2px solid;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Open Sans', sans-serif;
+            transition: all 0.2s;
+            background: rgba(255,250,228,0.85);
+        }
+
+        .filter-btn.all        { border-color: #1B2D4A; color: #1B2D4A; }
+        .filter-btn.dance      { border-color: #C75B2E; color: #C75B2E; }
+        .filter-btn.music      { border-color: #D4A017; color: #856000; }
+        .filter-btn.drama      { border-color: #8B0000; color: #8B0000; }
+        .filter-btn.fashion    { border-color: #7B1FA2; color: #7B1FA2; }
+
+        .filter-btn.active.all     { background: #1B2D4A; color: #F4C430; }
+        .filter-btn.active.dance   { background: #C75B2E; color: white; }
+        .filter-btn.active.music   { background: #D4A017; color: white; }
+        .filter-btn.active.drama   { background: #8B0000; color: white; }
+        .filter-btn.active.fashion { background: #7B1FA2; color: white; }
+
+        .filter-btn:hover { opacity: 0.8; transform: scale(1.05); }
+
+        .perf-card.hidden { display: none; }
 
         /* ===== PROGRAM SECTION ===== */
         .program-section {
@@ -526,6 +561,15 @@
             <div class="en">Event Program</div>
             <span class="ta">நிகழ்ச்சி நிரல்</span>
         </div>
+        <!-- CATEGORY FILTERS -->
+        <div class="filter-bar">
+            <button class="filter-btn all active" onclick="filterCards('all')">⭐ All · அனைத்தும்</button>
+            <button class="filter-btn dance" onclick="filterCards('dance')">💃 Dance · நடனம்</button>
+            <button class="filter-btn music" onclick="filterCards('music')">🎵 Music · இசை</button>
+            <button class="filter-btn drama" onclick="filterCards('drama')">🎭 Drama · நாடகம்</button>
+            <button class="filter-btn fashion" onclick="filterCards('fashion')">👗 Fashion · ஃபேஷன்</button>
+        </div>
+
         <div id="program-container">
             <div class="loading">⟳ நிகழ்ச்சி நிரல் ஏற்றுகிறது... Loading program...</div>
         </div>
@@ -681,6 +725,26 @@
                 <small style="opacity:0.7">${err.message}</small>
             </div>`;
         }
+    }
+
+    function filterCards(cat) {
+        // Update active button
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelector(`.filter-btn.${cat}`).classList.add('active');
+
+        // Show/hide cards
+        document.querySelectorAll('.perf-card').forEach(card => {
+            if (cat === 'all' || card.classList.contains('cat-' + cat)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        // Special items (speeches) — always show when All, hide when filtering
+        document.querySelectorAll('.special-item').forEach(item => {
+            item.classList.toggle('hidden', cat !== 'all');
+        });
     }
 
     loadProgram();
